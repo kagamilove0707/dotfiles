@@ -1,3 +1,6 @@
 [submodule "zsh/moonline.zsh"]
 	path = zsh/moonline.zsh
 	url = https://github.com/kagamilove0707/moonline.zsh
+[submodule ".vim/bundle/neobundle.vim"]
+	path = .vim/bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim

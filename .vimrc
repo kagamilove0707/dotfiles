@@ -39,6 +39,7 @@ endif
 
 " 行番号を表示するようにします
 set number
+set numberwidth=4
 
 " インデントの幅関連
 
@@ -46,6 +47,8 @@ set number
 set expandtab
 " インデントの幅は2
 set shiftwidth=2
+
+source $DOTFILES/vim/bundles.vim
 
 " シンタックスハイライトを有効にします
 syntax on
