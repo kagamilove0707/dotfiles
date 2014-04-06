@@ -21,4 +21,11 @@ source $DOTFILES/vim/lightline.conf.vim
 NeoBundle 'Shougo/neocomplete.vim'
 source $DOTFILES/vim/neocomplete.conf.vim
 
+" quickrun.vim
+NeoBundle 'thinca/vim-quickrun'
+source $DOTFILES/vim/quickrun.conf.vim
+
+" vimdoc-ja (ヘルプを日本語に)
+NeoBundle 'vim-jp/vimdoc-ja'
+
 NeoBundleCheck
