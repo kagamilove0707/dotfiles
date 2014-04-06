@@ -29,7 +29,14 @@ MOONLINE_RIGHT1=(time git-branch)
 my-git-branch() {
   local branch=$(git symbolic-ref HEAD 2>/dev/null)
   if [[ $branch != '' ]]; then
-    echo -e "\u2b60 ${branch:t}"
+    local str=
+    local sts=${(@f)$(git status -s)}
+    if [[ $#sts -eq 0 ]]; then
+      str+="%{%F{green}%}"
+    else
+      str+="%{%F{red}%}"
+    fi
+    print $'\u2b60'" ${str}${branch:t}"
   fi
 }
 
