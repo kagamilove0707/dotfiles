@@ -27,9 +27,9 @@ MOONLINE_LEFT2_1=(prompt)
 MOONLINE_RIGHT1=(time git-branch)
 
 my-git-branch() {
-  local branch=$(git rev-parse --addrev-ref HEAD 1>/dev/null 2&>1)
+  local branch=$(git symbolic-ref HEAD 2>/dev/null)
   if [[ $branch != '' ]]; then
-    echo -e "\u2b60 $branch"
+    echo -e "\u2b60 ${branch:t}"
   fi
 }
 
