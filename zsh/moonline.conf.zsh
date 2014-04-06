@@ -17,7 +17,7 @@ setopt prompt_subst
 MOONLINE_COMPONENTS+=(
   prompt "%%"
   path "%30<...<%~%<<"
-  git-branch "\$(my-git-branch)"
+  git-branch "\$(my-git-info)"
 )
 
 MOONLINE_LEFT_LINE=2
@@ -26,7 +26,7 @@ MOONLINE_LEFT1_2=(path)
 MOONLINE_LEFT2_1=(prompt)
 MOONLINE_RIGHT1=(time git-branch)
 
-my-git-branch() {
+my-git-info() {
   local branch=$(git symbolic-ref HEAD 2>/dev/null)
   if [[ $branch != '' ]]; then
     local str=
