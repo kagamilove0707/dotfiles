@@ -29,14 +29,15 @@ MOONLINE_RIGHT1=(time git-branch)
 my-git-info() {
   local branch=$(git symbolic-ref HEAD 2>/dev/null)
   if [[ $branch != '' ]]; then
-    local str=
+    branch=${branch:t}
+    local str=$'\u2b60 '
     local sts=${(@f)$(git status -s)}
-    if [[ $#sts -eq 0 ]]; then
-      str+="%{%F{green}%}"
-    else
-      str+="%{%F{red}%}"
-    fi
-    print $'\u2b60'" ${str}${branch:t}"
+    local mgd=${(@f)$(git branch --no-merged)}
+    str+="%{"
+    [[ $#mgd -eq 0 ]] && str+="%F{red}" || [[ $#sts -eq 0 ]] && str+="%F{blue}" || str+="%F{green}"
+    str+="%}"
+    str+="$branch"
+    print $str
   fi
 }
 
