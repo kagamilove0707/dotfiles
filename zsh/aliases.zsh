@@ -7,4 +7,5 @@ alias lsa="ls -Ba"
 # ===git関連===
 alias gst="git status -bs"
 alias gct="git commit"
+alias gctm="gct -m"
 alias gad="git add"
