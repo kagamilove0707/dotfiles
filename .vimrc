@@ -26,6 +26,7 @@ set backspace=indent,eol,start
 
 " コマンドライン補完を強化します
 set wildmenu
+set wildignorecase
 
 " タイトルを設定します
 set title
