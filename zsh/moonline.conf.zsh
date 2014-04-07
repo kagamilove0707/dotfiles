@@ -31,12 +31,17 @@ my-git-info() {
   if [[ $branch != '' ]]; then
     branch=${branch:t}
     local str=$'\u2b60 '
-    local sts=${(@f)$(git status -s)}
-    local mgd=${(@f)$(git branch --no-merged)}
+    local sts mgd
+    sts=$(git status -s | wc -l)
+    mgd=$(git branch --no-merged | wc -l)
     str+="%{"
-    [[ $#mgd -eq 0 ]] && str+="%F{red}" || [[ $#sts -eq 0 ]] && str+="%F{blue}" || str+="%F{green}"
+    if [[ $mgd -gt 0 ]]; then str+="%F{red}"
+    elif [[ $sts -gt 0 ]]; then str+="%F{yellow}"
+    else str+="%F{green}" fi
     str+="%}"
     str+="$branch"
+    [[ $mgd -ne 0 ]] && str+=" M:$mgd"
+    [[ $sts -ne 0 ]] && str+=" F:$sts"
     print $str
   fi
 }
