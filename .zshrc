@@ -1,6 +1,3 @@
-# dotfilesディレクトリのパス
-export DOTFILES=~/dotfiles
-
 # zshの設定
 
 # zshのキーバインドをVimにする
