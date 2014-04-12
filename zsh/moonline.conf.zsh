@@ -16,7 +16,7 @@ MOONLINE_SUBSEPARATOR=($'\u2b81' $'\u2b83')
 setopt prompt_subst
 MOONLINE_COMPONENTS+=(
   prompt "%%"
-  path "%30<...<%~%<<"
+  path "\$(my-path)"
   git-branch "\$(my-git-info)"
 )
 
@@ -25,6 +25,16 @@ MOONLINE_LEFT1_1=(username)
 MOONLINE_LEFT1_2=(path)
 MOONLINE_LEFT2_1=(prompt)
 MOONLINE_RIGHT1=(time git-branch)
+
+my-path() {
+  local p flag
+  p="$(print -P "%~")"
+  if [[ "$p[1]" = "/" ]]; then
+    p="$p[2,-1]"
+    flag="/ ${MOONLINE_SUBSEPARATOR[1]} "
+  fi
+  echo "$flag${(e)p:gs/\// ${MOONLINE_SUBSEPARATOR[1]} /}"
+}
 
 my-git-info() {
   local branch=$(git symbolic-ref HEAD 2>/dev/null)
