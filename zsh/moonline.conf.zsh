@@ -32,8 +32,8 @@ my-git-info() {
     branch=${branch:t}
     local str=$'\u2b60 '
     local sts mgd
-    sts=(${(@f)"$(git status -s)"})
-    mgd=(${(@f)"$(git branch --no-merged)"})
+    sts=(${(@f)"$(git status -s 2>/dev/null)"})
+    mgd=(${(@f)"$(git branch --no-merged 2>/dev/null)"})
     str+="%{"
     if [[ $#mgd -gt 0 ]]; then str+="%F{red}"
     elif [[ $#sts -gt 0 ]]; then str+="%F{yellow}"

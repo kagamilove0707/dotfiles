@@ -1,4 +1,5 @@
 #!/bin/bash
+
 DOTFILES="$(cd "$(dirname $0)"; pwd)"
 
 ln -fs $DOTFILES/.vimrc $HOME/.vimrc

@@ -17,14 +17,13 @@ zstyle ':completion:*' group-name ''
 
 # 入力したコマンドが存在せず、ディレクトリならそこへcdします
 setopt auto_cd
-# ついでに、上へ行くcdも設定
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
 
 # cd時にpushdも
 setopt auto_pushd
 setopt pushd_ignore_dups
+
+# 対話シェル中のコメントを有効にする
+setopt interactive_comments
 
 # hashの読み込み
 [ -f $DOTFILES/zsh/hashes.zsh ] && source $DOTFILES/zsh/hashes.zsh
