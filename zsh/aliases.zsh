@@ -1,6 +1,6 @@
 # ===ls関連===
 # lsを色付きに
-alias ls="ls -C"
+alias ls="ls --color=auto"
 # ls -aのalias(チルダで終わるファイルは非表示)
 alias lsa="ls -Ba"
 
