@@ -20,3 +20,7 @@ show256color() {
   done
   echo
 }
+
+title() {
+  echo -e "\e]2;$1\007"
+}

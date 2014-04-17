@@ -15,5 +15,5 @@ eval "$(rbenv init -)"
 path=($HOME/.cabal/bin $path)
 
 # ホームディレクトリのパス類を追加
-path+=($HOME/bin)
-export MANPATH=$HOME/man:
+path+=($HOME/local/bin)
+export MANPATH=$HOME/local/share/man:

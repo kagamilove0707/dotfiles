@@ -22,6 +22,14 @@ setopt pushd_ignore_dups
 # 対話シェル中のコメントを有効にする
 setopt interactive_comments
 
+# 拡張グロブを有効にします
+setopt extended_glob
+
+# ヒストリを重複しないようにする
+setopt hist_ignore_all_dups
+# スペースから始まるヒストリを登録しないようにする
+setopt hist_ignore_space
+
 # hashの読み込み
 [ -f $DOTFILES/zsh/hashes.zsh ] && source $DOTFILES/zsh/hashes.zsh
 
