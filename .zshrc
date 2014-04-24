@@ -9,8 +9,11 @@ autoload -U compinit; compinit -u
 # 補完メッセージを読みやすくします
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' format '%B%d%b'
-zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*:warnings' format '%F{red}%dでマッチしなかったのです‥%f'
 zstyle ':completion:*' group-name ''
+
+# 補完候補を矢印でも補完できるようにしますです
+zstyle ':completion:*:default' menu select=2
 
 # 入力したコマンドが存在せず、ディレクトリならそこへcdします
 setopt auto_cd
@@ -24,6 +27,8 @@ setopt interactive_comments
 
 # 拡張グロブを有効にします
 setopt extended_glob
+# ドットから始まるファイルを明確に指定しなくてもマッチするようにしますです
+setopt globdots
 
 # ヒストリを重複しないようにする
 setopt hist_ignore_all_dups
