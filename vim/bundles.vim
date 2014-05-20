@@ -28,4 +28,20 @@ source $DOTFILES/vim/quickrun.conf.vim
 " vimdoc-ja (ヘルプを日本語に)
 NeoBundle 'vim-jp/vimdoc-ja'
 
+" haskell系
+
+" vim2hs
+" Haskellのシンタックスハイライトを強化
+NeoBundleLazy 'dag/vim2hs', {
+      \ 'autoload': { 'filetypes': [ 'haskell' ] }
+      \ }
+let g:haskell_conceal = 0
+
+" neco-ghc
+" Haskellの補完
+NeoBundle 'eagletmt/neco-ghc', {
+      \ 'autoload': { 'filetypes': [ 'haskell' ] }
+      \ }
+let g:necoghc_enable_detailed_browse = 1
+
 NeoBundleCheck
